@@ -1,6 +1,6 @@
 [package]
 name = "neatcli"
-version = "0.7.0"
+version = "0.7.1"
 edition = "2021"
 description = "A smart CLI tool to organize and clean up messy directories"
 license = "MIT"
@@ -9,7 +9,7 @@ categories = ["command-line-utilities", "filesystem"]
 repository = "https://github.com/hazenill/neatcli"
 homepage = "https://github.com/hazenill/neatcli"
 readme = "README.md"
-authors = ["Patchy Bean"]
+authors = ["Haze"]
 
 [features]
 default = ["pdf"]
