@@ -467,10 +467,7 @@ mod tests {
         );
         assert_eq!(parse_size("500KB").unwrap(), 500 * 1024);
         assert_eq!(parse_size("100B").unwrap(), 100);
-        assert_eq!(
-            parse_size("1TB").unwrap(),
-            1024_u64 * 1024 * 1024 * 1024
-        );
+        assert_eq!(parse_size("1TB").unwrap(), 1024_u64 * 1024 * 1024 * 1024);
     }
 
     #[test]
@@ -502,7 +499,10 @@ mod tests {
 
     #[test]
     fn test_parse_size_float_values() {
-        assert_eq!(parse_size("0.5GB").unwrap(), (0.5 * 1024.0 * 1024.0 * 1024.0) as u64);
+        assert_eq!(
+            parse_size("0.5GB").unwrap(),
+            (0.5 * 1024.0 * 1024.0 * 1024.0) as u64
+        );
         assert_eq!(parse_size("2.5MB").unwrap(), (2.5 * 1024.0 * 1024.0) as u64);
     }
 

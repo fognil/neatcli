@@ -311,4 +311,3 @@ mod tests {
         assert!(get_preset_template("music").is_some());
     }
 }
-

@@ -458,4 +458,3 @@ mod tests {
         assert_eq!(age, "1d ago");
     }
 }
-

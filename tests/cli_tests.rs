@@ -221,7 +221,12 @@ fn test_template_flag() {
         .success();
 
     // Should be organized by template: Images/jpg/photo.jpg
-    assert!(dir.path().join("Images").join("jpg").join("photo.jpg").exists());
+    assert!(dir
+        .path()
+        .join("Images")
+        .join("jpg")
+        .join("photo.jpg")
+        .exists());
 }
 
 #[test]
@@ -265,4 +270,3 @@ fn test_clean_dry_run() {
     // File should still exist (dry-run)
     assert!(dir.path().join("file.txt").exists());
 }
-
