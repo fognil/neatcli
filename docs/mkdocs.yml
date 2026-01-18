@@ -1,9 +1,9 @@
 site_name: NeatCLI
 site_url: https://neatcli.readthedocs.io
 site_description: A smart CLI tool to organize and clean up messy directories
-site_author: Patchy Bean
-repo_url: https://github.com/hazenill/neatcli
-repo_name: hazenill/neatcli
+site_author: fognil
+repo_url: https://github.com/fognil/neatcli
+repo_name: fognil/neatcli
 
 theme:
   name: material
@@ -48,36 +48,36 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - Installation: getting-started/installation.md
-    - Quick Start: getting-started/quickstart.md
-    - Configuration: getting-started/configuration.md
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+      - Configuration: getting-started/configuration.md
   - Commands:
-    - organize: commands/organize.md
-    - clean: commands/clean.md
-    - duplicates: commands/duplicates.md
-    - similar: commands/similar.md
-    - stats: commands/stats.md
-    - watch: commands/watch.md
-    - quick: commands/quick.md
-    - profile: commands/profile.md
-    - undo: commands/undo.md
-    - history: commands/history.md
-    - config: commands/config.md
-    - completions: commands/completions.md
-    - tui: commands/tui.md
+      - organize: commands/organize.md
+      - clean: commands/clean.md
+      - duplicates: commands/duplicates.md
+      - similar: commands/similar.md
+      - stats: commands/stats.md
+      - watch: commands/watch.md
+      - quick: commands/quick.md
+      - profile: commands/profile.md
+      - undo: commands/undo.md
+      - history: commands/history.md
+      - config: commands/config.md
+      - completions: commands/completions.md
+      - tui: commands/tui.md
   - Reference:
-    - Filters: reference/filters.md
-    - Size & Date Filters: reference/size-date.md
-    - MIME Types: reference/mime-types.md
+      - Filters: reference/filters.md
+      - Size & Date Filters: reference/size-date.md
+      - MIME Types: reference/mime-types.md
   - Examples:
-    - Common Workflows: examples/workflows.md
-    - Photo Organization: examples/photos.md
-    - Music Library: examples/music.md
+      - Common Workflows: examples/workflows.md
+      - Photo Organization: examples/photos.md
+      - Music Library: examples/music.md
   - Changelog: changelog.md
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/hazenill/neatcli
+      link: https://github.com/fognil/neatcli
 
-copyright: Copyright &copy; 2025 Patchy Bean
+copyright: Copyright &copy; 2025 fognil

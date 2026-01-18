@@ -6,10 +6,10 @@ description = "A smart CLI tool to organize and clean up messy directories"
 license = "MIT"
 keywords = ["cli", "file-organizer", "cleanup", "utility"]
 categories = ["command-line-utilities", "filesystem"]
-repository = "https://github.com/hazenill/neatcli"
-homepage = "https://github.com/hazenill/neatcli"
+repository = "https://github.com/fognil/neatcli"
+homepage = "https://github.com/fognil/neatcli"
 readme = "README.md"
-authors = ["Haze"]
+authors = ["fognil <hi@fognil.com>"]
 
 [features]
 default = ["pdf"]

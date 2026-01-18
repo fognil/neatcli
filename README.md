@@ -1,7 +1,7 @@
 # 🧹 neatcli
 
-[![CI](https://github.com/hazenill/neatcli/actions/workflows/ci.yml/badge.svg)](https://github.com/hazenill/neatcli/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/hazenill/neatcli)](https://github.com/hazenill/neatcli/releases)
+[![CI](https://github.com/fognil/neatcli/actions/workflows/ci.yml/badge.svg)](https://github.com/fognil/neatcli/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/fognil/neatcli)](https://github.com/fognil/neatcli/releases)
 [![Crates.io](https://img.shields.io/crates/v/neatcli.svg)](https://crates.io/crates/neatcli)
 [![Documentation](https://readthedocs.org/projects/neatcli/badge/?version=latest)](https://neatcli.readthedocs.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -35,7 +35,7 @@ A smart CLI tool to organize and clean up messy directories, built in Rust.
 ### Using Homebrew
 
 ```bash
-brew tap hazenill/tap
+brew tap fognil/tap
 brew install neatcli
 ```
 
@@ -48,7 +48,7 @@ cargo install neatcli
 ### From source
 
 ```bash
-git clone https://github.com/hazenill/neatcli
+git clone https://github.com/fognil/neatcli
 cd neatcli
 cargo build --release
 sudo cp target/release/neatcli /usr/local/bin/
@@ -361,4 +361,4 @@ RUST_BACKTRACE=1 cargo run -- organize . --by-type
 
 ## 📄 License
 
-MIT © Patchy Bean
+MIT © fognil

@@ -5,7 +5,7 @@
 **A smart CLI tool to organize and clean up messy directories**
 
 [![Crates.io](https://img.shields.io/crates/v/neatcli.svg)](https://crates.io/crates/neatcli)
-[![GitHub release](https://img.shields.io/github/v/release/patchybean/neatcli)](https://github.com/patchybean/neatcli/releases)
+[![GitHub release](https://img.shields.io/github/v/release/fognil/neatcli)](https://github.com/fognil/neatcli/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 </div>
@@ -63,12 +63,12 @@ Ready to get started? Check out the [Installation](getting-started/installation.
 
 === "Homebrew"
     ```bash
-    brew tap patchybean/tap
+    brew tap fognil/tap
     brew install neatcli
     ```
 
 === "From Source"
     ```bash
-    git clone https://github.com/patchybean/neatcli.git
+    git clone https://github.com/fognil/neatcli.git
     cd neatcli && cargo build --release
     ```

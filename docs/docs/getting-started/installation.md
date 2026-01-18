@@ -20,7 +20,7 @@ This will download, compile, and install the latest version from [crates.io](htt
 For macOS and Linux users, NeatCLI is available via Homebrew:
 
 ```bash
-brew tap patchybean/tap
+brew tap fognil/tap
 brew install neatcli
 ```
 
@@ -35,9 +35,9 @@ Pre-built binaries are available for:
 
 | Platform | Architecture | Download |
 |----------|--------------|----------|
-| macOS | Apple Silicon (M1/M2/M3) | [neatcli-aarch64-apple-darwin.tar.gz](https://github.com/patchybean/neatcli/releases/latest) |
-| macOS | Intel x86_64 | [neatcli-x86_64-apple-darwin.tar.gz](https://github.com/patchybean/neatcli/releases/latest) |
-| Linux | x86_64 | [neatcli-x86_64-unknown-linux-gnu.tar.gz](https://github.com/patchybean/neatcli/releases/latest) |
+| macOS | Apple Silicon (M1/M2/M3) | [neatcli-aarch64-apple-darwin.tar.gz](https://github.com/fognil/neatcli/releases/latest) |
+| macOS | Intel x86_64 | [neatcli-x86_64-apple-darwin.tar.gz](https://github.com/fognil/neatcli/releases/latest) |
+| Linux | x86_64 | [neatcli-x86_64-unknown-linux-gnu.tar.gz](https://github.com/fognil/neatcli/releases/latest) |
 
 Download and extract:
 ```bash
@@ -50,7 +50,7 @@ sudo mv neatcli /usr/local/bin/
 Clone and build from source:
 
 ```bash
-git clone https://github.com/patchybean/neatcli.git
+git clone https://github.com/fognil/neatcli.git
 cd neatcli
 cargo build --release
 ```

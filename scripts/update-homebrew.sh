@@ -5,7 +5,7 @@
 #
 
 VERSION=${1:-"v0.1.0"}
-REPO="hazenill/neatcli"
+REPO="fognil/neatcli"
 
 echo "Updating Homebrew formula for version $VERSION..."
 
