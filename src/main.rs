@@ -47,6 +47,7 @@ fn main() -> Result<()> {
             content,
             template,
             on_conflict,
+            show_all_files,
         } => {
             commands::organize::run(
                 &paths,
@@ -75,6 +76,7 @@ fn main() -> Result<()> {
                 content,
                 template,
                 on_conflict,
+                show_all_files,
             )?;
         }
 

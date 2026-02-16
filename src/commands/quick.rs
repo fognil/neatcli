@@ -102,7 +102,7 @@ fn organize_by_type(path: &std::path::Path, execute: bool, name: &str) -> Result
         let result = execute_moves(&moves, &format!("quick {}", name), ConflictStrategy::Rename)?;
         print_results(&result);
     } else {
-        preview_moves(&moves, path);
+        preview_moves(&moves, path, false);
     }
 
     Ok(())
@@ -138,7 +138,7 @@ fn organize_photos(path: &std::path::Path, execute: bool) -> Result<()> {
         let result = execute_moves(&moves, "quick photos", ConflictStrategy::Rename)?;
         print_results(&result);
     } else {
-        preview_moves(&moves, path);
+        preview_moves(&moves, path, false);
     }
 
     Ok(())
@@ -177,7 +177,7 @@ fn organize_music(path: &std::path::Path, execute: bool) -> Result<()> {
         let result = execute_moves(&moves, "quick music", ConflictStrategy::Rename)?;
         print_results(&result);
     } else {
-        preview_moves(&moves, path);
+        preview_moves(&moves, path, false);
     }
 
     Ok(())

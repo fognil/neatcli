@@ -142,6 +142,10 @@ pub enum Commands {
         /// How to handle file conflicts (skip, overwrite, rename, ask)
         #[arg(long, value_parser = parse_conflict_strategy, default_value = "rename")]
         on_conflict: ConflictStrategy,
+
+        /// Show all files in each folder
+        #[arg(long)]
+        show_all_files: bool,
     },
 
     /// Clean old files from a directory

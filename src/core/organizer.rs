@@ -220,7 +220,7 @@ pub fn plan_moves_with_template(
 }
 
 /// Preview planned moves (dry-run)
-pub fn preview_moves(moves: &[PlannedMove], base_path: &Path) {
+pub fn preview_moves(moves: &[PlannedMove], base_path: &Path, show_all_files: bool) {
     if moves.is_empty() {
         println!("{}", "No files to move.".yellow());
         return;
@@ -249,13 +249,14 @@ pub fn preview_moves(moves: &[PlannedMove], base_path: &Path) {
             files.len()
         );
 
-        // Show first 5 files in each folder
-        for mv in files.iter().take(5) {
+        // Show files based on show_all_files flag
+        let display_count = if show_all_files { files.len() } else { 5 };
+        for mv in files.iter().take(display_count) {
             let from_name = mv.from.file_name().unwrap_or_default().to_string_lossy();
             println!("    {} {}", "→".dimmed(), from_name);
         }
 
-        if files.len() > 5 {
+        if !show_all_files && files.len() > 5 {
             println!("    {} ... and {} more", "→".dimmed(), files.len() - 5);
         }
     }

@@ -370,7 +370,7 @@ fn run_profile(profile: &Profile, execute: bool) -> Result<()> {
             let result = execute_moves(&moves, &cmd_name, conflict_strategy)?;
             print_results(&result);
         } else {
-            preview_moves(&moves, &canonical);
+            preview_moves(&moves, &canonical, false);
         }
     }
 

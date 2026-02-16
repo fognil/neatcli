@@ -42,6 +42,7 @@ pub fn run(
     content_filter: Option<String>,
     template: Option<String>,
     on_conflict: ConflictStrategy,
+    show_all_files: bool,
 ) -> Result<()> {
     // Determine mode
     let mode = if by_date {
@@ -114,6 +115,7 @@ pub fn run(
             content_filter.clone(),
             template.clone(),
             on_conflict,
+            show_all_files,
         )?;
     }
 
@@ -144,6 +146,7 @@ fn organize_single_path(
     content_filter: Option<String>,
     template: Option<String>,
     on_conflict: ConflictStrategy,
+    show_all_files: bool,
 ) -> Result<()> {
     let canonical_path = path
         .canonicalize()
@@ -237,7 +240,7 @@ fn organize_single_path(
             print_results(&result);
         }
     } else {
-        preview_moves(&moves, &canonical_path);
+        preview_moves(&moves, &canonical_path, show_all_files);
     }
 
     Ok(())
