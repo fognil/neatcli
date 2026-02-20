@@ -129,6 +129,7 @@ neatcli organize ~/Downloads --template "backup/{now.date}/{category}/{filename}
 | `--dry-run` | `-n` | Preview changes (default) |
 | `--copy` | `-c` | Copy files instead of moving |
 | `--recursive` | `-r` | Include subdirectories |
+| `--show-all-files` | | Show all files in preview (default: first 5 per folder) |
 
 ### Conflict Resolution
 
@@ -252,6 +253,9 @@ Summary: 23 files to move (450 MB)
 
 ℹ Use --execute to execute these changes.
 ```
+
+!!! tip "Show All Files"
+    By default, only the first 5 files per folder are shown. Use `--show-all-files` to see every file in the preview.
 
 ### Execute Mode
 

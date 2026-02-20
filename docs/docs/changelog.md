@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.3] - 2026-02-20
+
+### Added
+- **Show All Files Flag**: `--show-all-files` flag for `organize` command to display all files in preview instead of truncating after 5 (contributed by @djanatyn in [#1](https://github.com/fognil/neatcli/pull/1))
+
+---
+
 ## [0.7.0] - 2025-12-31
 
 ### Added
@@ -101,7 +108,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Undo/History**: Rollback operations
 - **Safe by Default**: Dry-run mode for preview
 
-[Unreleased]: https://github.com/fognil/neatcli/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/fognil/neatcli/compare/v0.7.3...HEAD
+[0.7.3]: https://github.com/fognil/neatcli/compare/v0.7.0...v0.7.3
 [0.5.0]: https://github.com/fognil/neatcli/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/fognil/neatcli/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/fognil/neatcli/compare/v0.2.0...v0.3.0

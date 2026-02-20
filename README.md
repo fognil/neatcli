@@ -101,6 +101,9 @@ neatcli organize ~/Music --template "music" --execute
 
 # Filter by text content (finds files containing "invoice")
 neatcli organize ~/Documents --content "invoice" --execute
+
+# Show all files in preview (instead of first 5 per folder)
+neatcli organize ~/Downloads --by-type --show-all-files
 ```
 
 ### Find Duplicates
