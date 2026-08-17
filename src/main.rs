@@ -86,6 +86,7 @@ fn main() -> Result<()> {
             empty_folders,
             dry_run,
             execute,
+            force,
             trash,
             min_size,
             max_size,
@@ -98,6 +99,7 @@ fn main() -> Result<()> {
                 empty_folders,
                 dry_run,
                 execute,
+                force,
                 trash,
                 min_size,
                 max_size,
@@ -111,6 +113,7 @@ fn main() -> Result<()> {
             delete,
             dry_run,
             execute,
+            force,
             trash,
             min_size,
             max_size,
@@ -120,7 +123,7 @@ fn main() -> Result<()> {
             csv,
         } => {
             commands::duplicates::run(
-                &path, delete, dry_run, execute, trash, min_size, max_size, after, before, json,
+                &path, delete, dry_run, execute, force, trash, min_size, max_size, after, before, json,
                 csv,
             )?;
         }
@@ -131,9 +134,11 @@ fn main() -> Result<()> {
             delete,
             dry_run,
             execute,
+            force,
+            level,
             trash,
         } => {
-            commands::similar::run(&path, threshold, delete, dry_run, execute, trash)?;
+            commands::similar::run(&path, threshold, delete, dry_run, execute, force, level, trash)?;
         }
 
         Commands::Stats { path, json } => {

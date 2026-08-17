@@ -8,11 +8,12 @@ use std::sync::Mutex;
 
 use anyhow::Result;
 use colored::*;
+use image_hasher::{HashAlg, Hasher, HasherConfig};
 use indicatif::{ProgressBar, ProgressStyle};
 use memmap2::Mmap;
 use rayon::prelude::*;
 use xxhash_rust::xxh3::xxh3_64;
-
+use crate::cli::PerformanceLevel;
 use crate::scanner::{format_size, FileInfo};
 
 /// A group of duplicate files
@@ -334,6 +335,29 @@ impl SimilarGroup {
     }
 }
 
+fn build_hasher(level: PerformanceLevel) -> Hasher {
+    match level {
+        PerformanceLevel::Fast => {
+            HasherConfig::new()
+                .hash_alg(HashAlg::Gradient)
+                .hash_size(8, 8)
+                .to_hasher()
+        }
+        PerformanceLevel::Balanced => {
+            HasherConfig::new()
+                .hash_alg(HashAlg::Gradient)
+                .hash_size(16, 16)
+                .to_hasher()
+        }
+        PerformanceLevel::High => {
+            HasherConfig::new()
+                .hash_alg(HashAlg::DoubleGradient)
+                .hash_size(16, 16)
+                .to_hasher()
+        }
+    }
+}
+
 /// Check if a file is a supported image format for perceptual hashing
 fn is_image_supported(path: &std::path::Path) -> bool {
     let ext = path
@@ -349,9 +373,7 @@ fn is_image_supported(path: &std::path::Path) -> bool {
 
 /// Find visually similar images using perceptual hashing
 #[allow(clippy::needless_range_loop)]
-pub fn find_similar_images(files: &[FileInfo], threshold: u32) -> Result<Vec<SimilarGroup>> {
-    use image_hasher::{HashAlg, HasherConfig};
-
+pub fn find_similar_images(files: &[FileInfo], level: PerformanceLevel,threshold: u32) -> Result<Vec<SimilarGroup>> {
     // Filter to only image files
     let images: Vec<&FileInfo> = files
         .iter()
@@ -378,11 +400,7 @@ pub fn find_similar_images(files: &[FileInfo], threshold: u32) -> Result<Vec<Sim
             .progress_chars("█▓░"),
     );
 
-    // Configure hasher with DCT algorithm (good for finding similar images)
-    let hasher = HasherConfig::new()
-        .hash_alg(HashAlg::DoubleGradient)
-        .hash_size(16, 16)
-        .to_hasher();
+    let hasher = build_hasher(level);
 
     // Calculate hashes for all images in parallel
     let hashes: Vec<(&FileInfo, Option<image_hasher::ImageHash>)> = images
