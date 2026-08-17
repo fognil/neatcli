@@ -170,6 +170,10 @@ pub enum Commands {
         #[arg(long, short)]
         execute: bool,
 
+        /// Clean without confirm
+        #[arg(long)]
+        force: bool,
+
         /// Move files to trash instead of permanent deletion
         #[arg(long)]
         trash: bool,
@@ -208,6 +212,10 @@ pub enum Commands {
         /// Actually execute the changes
         #[arg(long, short)]
         execute: bool,
+
+        /// Clean without confirm
+        #[arg(long)]
+        force: bool,
 
         /// Move duplicates to trash instead of permanent deletion
         #[arg(long)]
@@ -259,6 +267,14 @@ pub enum Commands {
         /// Actually execute the changes
         #[arg(long, short)]
         execute: bool,
+
+        /// Clean without confirm
+        #[arg(long)]
+        force: bool,
+
+        /// Performance vs accuracy trade-off
+        #[arg(long, default_value = "balanced", value_enum)]
+        level: PerformanceLevel,
 
         /// Move similar images to trash instead of permanent deletion
         #[arg(long)]
@@ -412,6 +428,13 @@ pub enum QuickAction {
         #[arg(long, short = 'n')]
         dry_run: bool,
     },
+}
+
+#[derive(Debug, Clone, Copy, clap::ValueEnum)]
+pub enum PerformanceLevel {
+    Fast,
+    Balanced,
+    High,
 }
 
 /// Profile management actions

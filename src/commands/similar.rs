@@ -6,7 +6,7 @@ use std::path::Path;
 use anyhow::{Context, Result};
 use colored::*;
 use dialoguer::Confirm;
-
+use crate::cli::PerformanceLevel;
 use crate::duplicates;
 use crate::scanner::{scan_directory, ScanOptions};
 
@@ -17,6 +17,8 @@ pub fn run(
     delete: bool,
     dry_run: bool,
     execute: bool,
+    force: bool,
+    level: PerformanceLevel,
     use_trash: bool,
 ) -> Result<()> {
     let canonical_path = path
@@ -43,7 +45,7 @@ pub fn run(
     };
 
     let files = scan_directory(&canonical_path, &options)?;
-    let similar = duplicates::find_similar_images(&files, threshold)?;
+    let similar = duplicates::find_similar_images(&files, level, threshold)?;
 
     duplicates::display_similar_images(&similar);
 
@@ -63,14 +65,19 @@ pub fn run(
             return Ok(());
         }
 
-        let confirm = Confirm::new()
-            .with_prompt(format!(
-                "Are you sure you want to {} {} similar images?",
-                action,
-                files_to_remove.len()
-            ))
-            .default(false)
-            .interact()?;
+        let confirm;
+        if !force {
+            confirm = Confirm::new()
+                .with_prompt(format!(
+                    "Are you sure you want to {} {} similar images?",
+                    action,
+                    files_to_remove.len()
+                ))
+                .default(false)
+                .interact()?;
+        } else {
+            confirm = true;
+        }
 
         if confirm {
             let mut deleted = 0;

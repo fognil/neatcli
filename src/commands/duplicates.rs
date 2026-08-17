@@ -17,6 +17,7 @@ pub fn run(
     delete: bool,
     dry_run: bool,
     execute: bool,
+    force: bool,
     use_trash: bool,
     min_size: Option<String>,
     max_size: Option<String>,
@@ -89,14 +90,19 @@ pub fn run(
     display_duplicates(&duplicates);
 
     if delete && execute && !dry_run && !duplicates.is_empty() {
-        let action = if use_trash { "Move to trash" } else { "Delete" };
-        let confirmed = dialoguer::Confirm::new()
-            .with_prompt(format!(
-                "{} duplicate files (keeping first in each group)?",
-                action
-            ))
-            .default(false)
-            .interact()?;
+        let confirmed;
+        if !force {
+            let action = if use_trash { "Move to trash" } else { "Delete" };
+            confirmed = dialoguer::Confirm::new()
+                .with_prompt(format!(
+                    "{} duplicate files (keeping first in each group)?",
+                    action
+                ))
+                .default(false)
+                .interact()?;
+        } else {
+            confirmed = true;
+        }
 
         if confirmed {
             let mut deleted = 0;

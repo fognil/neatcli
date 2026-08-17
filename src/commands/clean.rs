@@ -17,6 +17,7 @@ pub fn run(
     empty_folders: bool,
     dry_run: bool,
     execute: bool,
+    force: bool,
     use_trash: bool,
     min_size: Option<String>,
     max_size: Option<String>,
@@ -73,7 +74,7 @@ pub fn run(
         let old_files = cleaner::find_old_files(&files, duration);
 
         if execute && !dry_run {
-            cleaner::execute_clean(&old_files, false, use_trash)?;
+            cleaner::execute_clean(&old_files, force, use_trash)?;
         } else {
             cleaner::preview_clean(&old_files, &duration_str);
         }
